@@ -1,0 +1,74 @@
+<% layout("layouts/boilerplate") %>
+
+<body>
+  <h1>Sell your villa</h1>
+
+  <div>
+    <form method="POST" action="/listings">
+
+      TITLE:
+      <input 
+        type="text" 
+        placeholder="enter the name" 
+        name="listing[title]"
+      ><br>
+
+      PRICE:
+      <input 
+        type="number" 
+        placeholder="enter price" 
+        name="listing[price]"
+      ><br>
+
+      IMAGE:
+      <input
+        type="url"
+        name="listing[image]"
+        placeholder="Paste image URL"
+      ><br>
+
+      DESCRIPTION:
+      <textarea 
+        placeholder="enter description of place" 
+        name="listing[description]"
+      ></textarea><br>
+
+      CITY:
+      <input 
+        type="text" 
+        placeholder="enter city" 
+        name="listing[location][city]"
+      ><br>
+
+      COUNTRY:
+      <input 
+        type="text" 
+        placeholder="enter country name" 
+        name="listing[location][country]"
+      ><br>
+
+      <button type="submit">Submit</button>
+
+    </form>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

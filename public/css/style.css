@@ -1,0 +1,18 @@
+.navbar{
+height:5rem;
+background-color:white;
+}
+.fa-airbnb {
+font-size:3rem;
+color:red;
+}
+.nav-link{
+color:#222222 !important;
+}
+footer i {
+  font-size: 1.1rem;
+}
+
+footer a:hover i {
+  color: #ff385c; /* Airbnb pink */
+}

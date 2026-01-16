@@ -1,0 +1,14 @@
+<% layout("layouts/boilerplate") %>
+
+<body>
+  <h1>READ YOUR POST CONTENTS</h1>
+
+  <div class="show">
+    <h1><%= listings.title %></h1>
+    <img src="<%= listings.image %>">
+    <p><%= listings.description %></p>
+    <h1>₹ <%= listings.price.toLocaleString("en-IN") %></h1>
+    <h1><%= listings.location.city %></h1>
+    <h1><%= listings.location.country %></h1>
+  </div>
+</body>

@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Wanderlust Listings</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/style.css">
-</head>
+<% layout("layouts/boilerplate") %>
+
 <body>
 
   <h1>All Listings</h1>
@@ -17,14 +11,17 @@
       <% for (let listing of listings) { %>
 
         <div class="card">
-          <img
+    <!--          <img
             src="<%= listing.image %>"
             alt="listing image"
             loading="lazy"
-          >
+          >  -->
 
-          <h2><%= listing.title %></h2>
-          <p>₹ <%= listing.price %></p>
+          <h2><a href="/listings/<%=listing._id%>/show"><%= listing.title %></a></h2><br>
+	<button> <a href="/listings/<%=listing._id%>/edit">update</a></button>
+        <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+	     <button type="submit">delete</button>
+	</form>
         </div>
 
       <% } %>

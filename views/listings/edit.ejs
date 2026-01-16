@@ -1,0 +1,58 @@
+<% layout("layouts/boilerplate") %>
+
+<body>
+  <h1>Sell your villa</h1>
+
+  <div>
+    <form method="POST" action="/listings/<%=listing._id%>?_method=PUT">
+	
+	TITLE:
+  <input
+    type="text"
+    name="listing[title]"
+    value="<%= listing.title %>"
+  ><br>
+
+  PRICE:
+  <input
+    type="number"
+    name="listing[price]"
+    value="<%= listing.price %>"
+  ><br>
+
+  IMAGE URL:
+  <input
+    type="url"
+    name="listing[image]"
+    value="<%= listing.image %>"
+  ><br>
+
+  DESCRIPTION:
+  <textarea name="listing[description]"><%= listing.description %></textarea><br>
+
+  CITY:
+  <input
+    type="text"
+    name="listing[location][city]"
+    value="<%= listing.location.city %>"
+  ><br>
+
+  COUNTRY:
+  <input
+    type="text"
+    name="listing[location][country]"
+    value="<%= listing.location.country %>"
+  ><br>
+
+  <button type="submit">Update</button>
+
+</form>
+
+<a href="/listings">Go Back</a>
+	
+
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
