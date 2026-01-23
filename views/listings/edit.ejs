@@ -1,5 +1,5 @@
 <% layout("layouts/boilerplate") %>
-
+<!--
 <body>
   <h1>Sell your villa</h1>
 
@@ -56,3 +56,96 @@
   <script src="/script.js"></script>
 </body>
 </html>
+-->
+
+
+
+<body>
+<div class="row">
+  <div class="col-12 col-md-8 offset-md-2">
+
+    <h2 class="mb-4">updating aListing</h2>
+
+<form method="POST" action="/listings/<%=listing._id%>?_method=PUT">
+      <!-- Title -->
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input
+          type="text"
+          name="listing[title]"
+          class="form-control"
+	     value="<%= listing.title %>"
+          placeholder="enter title"
+          required
+        >
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea
+          name="listing[description]"
+          class="form-control"
+          rows="3"
+          placeholder="enter description"
+          required
+        ><%= listing.description %></textarea>
+      </div>
+
+      <!-- Image -->
+      <div class="mb-3">
+        <label class="form-label">Image Link</label>
+        <input
+          type="text"
+          name="listing[image]"
+	   value="<%= listing.image%>"
+          class="form-control"
+          placeholder="enter image URL/link"
+        >
+      </div>
+
+      <!-- Price -->
+      <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input
+          type="number"
+          name="listing[price]"
+	   value="<%= listing.price %>"
+          class="form-control"
+          placeholder="enter price"
+          required
+        >
+      </div>
+
+      <!-- City -->
+      <div class="mb-3">
+        <label class="form-label">City</label>
+        <input
+          type="text"
+          name="listing[location][city]"
+          value="<%= listing.location.city %>"
+          class="form-control"
+          placeholder="enter city"
+          required
+        >
+      </div>
+
+      <!-- country -->
+      <div class="mb-3">
+        <label class="form-label">Location</label>
+        <input
+          type="text"
+          name="listing[location][country]"
+          value="<%= listing.location.country %>"
+          class="form-control"
+          placeholder="enter country"
+          required
+        >
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-dark">update</button>
+</form>
+</div>
+</div>
+</body>

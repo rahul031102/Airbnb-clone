@@ -1,65 +1,90 @@
 <% layout("layouts/boilerplate") %>
 
-<body>
-  <h1>Sell your villa</h1>
+<div class="row">
+  <div class="col-12 col-md-8 offset-md-2">
 
-  <div>
-    <form method="POST" action="/listings">
+    <h2 class="mb-4">Create a New Listing</h2>
 
-      TITLE:
-      <input 
-        type="text" 
-        placeholder="enter the name" 
-        name="listing[title]"
-      ><br>
+    <form action="/listings" method="POST">
 
-      PRICE:
-      <input 
-        type="number" 
-        placeholder="enter price" 
-        name="listing[price]"
-      ><br>
+      <!-- Title -->
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input
+          type="text"
+          name="listing[title]"
+          class="form-control"
+          placeholder="enter title"
+          required
+        >
+      </div>
 
-      IMAGE:
-      <input
-        type="url"
-        name="listing[image]"
-        placeholder="Paste image URL"
-      ><br>
+      <!-- Description -->
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea
+          name="listing[description]"
+          class="form-control"
+          rows="3"
+          placeholder="enter description"
+          required
+        ></textarea>
+      </div>
 
-      DESCRIPTION:
-      <textarea 
-        placeholder="enter description of place" 
-        name="listing[description]"
-      ></textarea><br>
+      <!-- Image -->
+      <div class="mb-3">
+        <label class="form-label">Image Link</label>
+        <input
+          type="text"
+          name="listing[image]"
+          class="form-control"
+          placeholder="enter image URL/link"
+        >
+      </div>
 
-      CITY:
-      <input 
-        type="text" 
-        placeholder="enter city" 
-        name="listing[location][city]"
-      ><br>
+      <!-- Price -->
+      <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input
+          type="number"
+          name="listing[price]"
+          class="form-control"
+          placeholder="enter price"
+          required
+        >
+      </div>
 
-      COUNTRY:
-      <input 
-        type="text" 
-        placeholder="enter country name" 
-        name="listing[location][country]"
-      ><br>
+      <!-- City -->
+      <div class="mb-3">
+        <label class="form-label">City</label>
+        <input
+          type="text"
+          name="listing[city]"
+          class="form-control"
+          placeholder="enter city"
+          required
+        >
+      </div>
 
-      <button type="submit">Submit</button>
+      <!-- country -->
+      <div class="mb-3">
+        <label class="form-label">Location</label>
+        <input
+          type="text"
+          name="listing[country]"
+          class="form-control"
+          placeholder="enter country"
+          required
+        >
+      </div>
+
+      <!-- Submit -->
+      <button class="btn btn-dark">Add</button>
 
     </form>
+
   </div>
-
-  <script src="/script.js"></script>
-</body>
-
-
-
-
-
-
+</div>
 
 
 

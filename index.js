@@ -1,3 +1,4 @@
+
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -27,7 +28,8 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.get("/", (req, res) => {
 
-        res.send("im groot");
+       // res.send("im groot");
+res.redirect("/listings");
 });
 
 
@@ -72,8 +74,8 @@ app.post("/listings",async(req,res)=>{
 app.get("/listings/:id/show",async(req,res)=>{
     let {id}=req.params;
     console.log(req.params.id);
-    let listings=await Listing.findById(id);
-    res.render("listings/show",{listings});
+    let listing=await Listing.findById(id);
+    res.render("listings/show",{listing});
 });
 
 app.get("/listings/:id/edit",async(req,res)=>{

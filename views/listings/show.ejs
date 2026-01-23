@@ -1,14 +1,45 @@
-<% layout("layouts/boilerplate") %>
+<% layout("layouts/boilerplate", { bodyClass: "show-page" }) %>
 
-<body>
-  <h1>READ YOUR POST CONTENTS</h1>
+<div
+  class="show-bg"
+  style="--bg-img: url('<%= listing.image %>')"
+></div>
 
-  <div class="show">
-    <h1><%= listings.title %></h1>
-    <img src="<%= listings.image %>">
-    <p><%= listings.description %></p>
-    <h1>₹ <%= listings.price.toLocaleString("en-IN") %></h1>
-    <h1><%= listings.location.city %></h1>
-    <h1><%= listings.location.country %></h1>
+<div class="container show-content py-5">
+
+  <h1 class="mb-3"><%= listing.title %></h1>
+
+  <img
+    src="<%= listing.image %>"
+    class="img-fluid rounded mb-4"
+    alt="listing image"
+  >
+
+  <p class="lead"><%= listing.description %></p>
+
+  <h3>₹ <%= listing.price.toLocaleString("en-IN") %></h3>
+
+  <p>
+    <strong><%= listing.location.city %></strong>,
+    <%= listing.location.country %>
+  </p>
+
+  <div class="d-flex gap-2 mt-4">
+    <a
+      href="/listings/<%= listing._id %>/edit"
+      class="btn btn-warning"
+    >
+      Update
+    </a>
+
+    <form
+      method="POST"
+      action="/listings/<%= listing._id %>?_method=DELETE"
+    >
+      <button class="btn btn-danger" type="submit">
+        Delete
+      </button>
+    </form>
   </div>
-</body>
+
+</div>

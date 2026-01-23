@@ -1,3 +1,15 @@
+body.listings-page {
+  background: linear-gradient(
+      rgba(255, 56, 92, 0.25),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("https://images.unsplash.com/photo-1518544801976-3e159e50e5bb?auto=format&fit=crop&w=1600&q=60");
+  background-size: cover;
+  background-position: center;
+}
+body {
+  padding-top: 70px;
+}
 .navbar{
 height:5rem;
 background-color:white;
@@ -15,4 +27,37 @@ footer i {
 
 footer a:hover i {
   color: #ff385c; /* Airbnb pink */
+}
+.card-img-top {
+  height: 200px;        /* fixed height */
+  object-fit: cover;   /* crop, don’t stretch */
+}
+.cl{
+background-color:red;
+}
+/* Blurred background using same image */
+.show-bg {
+  position: fixed;
+  inset: 0;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  filter: blur(25px);
+  transform: scale(1.1);
+  z-index: -2;
+}
+
+/* Dark overlay */
+.show-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Content stays sharp */
+.show-content {
+  position: relative;
+  z-index: 1;
+  color: white;
 }
