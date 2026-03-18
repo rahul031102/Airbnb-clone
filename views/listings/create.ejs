@@ -5,7 +5,7 @@
 
     <h2 class="mb-4">Create a New Listing</h2>
 
-    <form action="/listings" method="POST">
+    <form action="/listings" method="POST" novalidate class="needs-validation">
 
       <!-- Title -->
       <div class="mb-3">
@@ -17,6 +17,8 @@
           placeholder="enter title"
           required
         >
+      <div class="invalid-feedback">enter valid title </div>
+      <div class="valid-feedback">valid</div>
       </div>
 
       <!-- Description -->
@@ -29,6 +31,8 @@
           placeholder="enter description"
           required
         ></textarea>
+      <div class="invalid-feedback">enter valid description </div>
+      <div class="valid-feedback">valid</div>
       </div>
 
       <!-- Image -->
@@ -40,6 +44,8 @@
           class="form-control"
           placeholder="enter image URL/link"
         >
+        <div class="invalid-feedback">enter valid link</div>
+      <div class="valid-feedback">valid</div>
       </div>
 
       <!-- Price -->
@@ -52,6 +58,8 @@
           placeholder="enter price"
           required
         >
+        <div class="invalid-feedback">enter valid price </div>
+      <div class="valid-feedback">valid</div>
       </div>
 
       <!-- City -->
@@ -59,23 +67,27 @@
         <label class="form-label">City</label>
         <input
           type="text"
-          name="listing[city]"
+          name="listing[location][city]"
           class="form-control"
           placeholder="enter city"
           required
         >
+        <div class="invalid-feedback">enter valid city name </div>
+      <div class="valid-feedback">valid</div>
       </div>
 
       <!-- country -->
       <div class="mb-3">
-        <label class="form-label">Location</label>
+        <label class="form-label">country</label>
         <input
           type="text"
-          name="listing[country]"
+          name="listing[location][country]"
           class="form-control"
           placeholder="enter country"
           required
         >
+        <div class="invalid-feedback">enter valid country name </div>
+      <div class="valid-feedback">valid</div>
       </div>
 
       <!-- Submit -->

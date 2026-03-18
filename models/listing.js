@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema =mongoose.Schema;
 
 const listingSchema = new mongoose.Schema(
   {
@@ -10,8 +11,8 @@ const listingSchema = new mongoose.Schema(
 
     image: {
       type: String, // image URL
-      required: true,
-      default:"/images/building.jpg",
+      //required: true,
+      default:"/images/rahul.jpg",
     },
 
     price: {
@@ -29,6 +30,9 @@ const listingSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+    reviews:[{
+      type:Schema.Types.ObjectId,
+    }],
   },
   { timestamps: true }
 );
