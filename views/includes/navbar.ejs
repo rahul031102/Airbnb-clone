@@ -12,4 +12,36 @@
       </div>
     </div>
   </div>
+
+<div class="ms-auto dropdown">
+  <button class="btn btn-outline-dark" type="button" data-bs-toggle="dropdown">
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+  </button>
+
+  <ul class="dropdown-menu dropdown-menu-end">
+
+    <% if (!currUser) { %>
+      <li>
+        <a class="dropdown-item" href="/signup">Signup</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="/login">Login</a>
+      </li>
+    <% } else { %>
+      <li>
+        <span class="dropdown-item-text">
+          Hello, <%= currUser.username %>
+        </span>
+      </li>
+      <li><hr class="dropdown-divider"></li>
+      <li>
+        <form action="/logout" method="POST">
+          <button class="dropdown-item">Logout</button>
+        </form>
+      </li>
+    <% } %>
+
+  </ul>
+</div>
+
 </nav>

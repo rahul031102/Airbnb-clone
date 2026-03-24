@@ -1,64 +1,15 @@
 <% layout("layouts/boilerplate") %>
-<!--
-<body>
-  <h1>Sell your villa</h1>
+<%
+  let imageUrl;
 
-  <div>
-    <form method="POST" action="/listings/<%=listing._id%>?_method=PUT">
-	
-	TITLE:
-  <input
-    type="text"
-    name="listing[title]"
-    value="<%= listing.title %>"
-  ><br>
-
-  PRICE:
-  <input
-    type="number"
-    name="listing[price]"
-    value="<%= listing.price %>"
-  ><br>
-
-  IMAGE URL:
-  <input
-    type="url"
-    name="listing[image]"
-    value="<%= listing.image %>"
-  ><br>
-
-  DESCRIPTION:
-  <textarea name="listing[description]"><%= listing.description %></textarea><br>
-
-  CITY:
-  <input
-    type="text"
-    name="listing[location][city]"
-    value="<%= listing.location.city %>"
-  ><br>
-
-  COUNTRY:
-  <input
-    type="text"
-    name="listing[location][country]"
-    value="<%= listing.location.country %>"
-  ><br>
-
-  <button type="submit">Update</button>
-
-</form>
-
-<a href="/listings">Go Back</a>
-	
-
-  </div>
-
-  <script src="/script.js"></script>
-</body>
-</html>
--->
-
-
+  if (!listing.image) {
+    imageUrl = "https://via.placeholder.com/400";
+  } else if (typeof listing.image === "string") {
+    imageUrl = listing.image;
+  } else {
+    imageUrl = listing.image.url;
+  }
+%>
 
 <body>
 <div class="row">
@@ -66,7 +17,7 @@
 
     <h2 class="mb-4">updating aListing</h2>
 
-<form method="POST" action="/listings/<%=listing._id%>?_method=PUT">
+<form method="POST" action="/listings/<%=listing._id%>?_method=PUT" enctype="multipart/form-data">
       <!-- Title -->
       <div class="mb-3">
         <label class="form-label">Title</label>
@@ -74,7 +25,7 @@
           type="text"
           name="listing[title]"
           class="form-control"
-	     value="<%= listing.title %>"
+	        value="<%= listing.title %>"
           placeholder="enter title"
           required
         >
@@ -93,14 +44,23 @@
       </div>
 
       <!-- Image -->
+       <div class="mb-3">
+  <label class="form-label">Current Image</label><br>
+
+  <img 
+    src="<%= imageUrl %>" 
+    style="width: 250px; height: auto; border-radius: 10px;"
+  >
+</div>
       <div class="mb-3">
-        <label class="form-label">Image Link</label>
+        <!-- <label class="form-label">Image Link</label> -->
+         
         <input
-          type="text"
+          type="file"
           name="listing[image]"
-	   value="<%= listing.image%>"
+	      
           class="form-control"
-          placeholder="enter image URL/link"
+          placeholder="upload new image "
         >
       </div>
 
