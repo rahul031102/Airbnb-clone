@@ -1,4 +1,5 @@
 const express = require("express");
+// const session = require("express-session")
 const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
@@ -7,6 +8,7 @@ require("dotenv").config();
 
 const ExpressError = require("./utils/ExpressError");
 const session =require("express-session");
+const MongoStore = require("connect-mongo").default;
 const flash =require("connect-flash");
 const passport=require("passport");
 const LocalStrategy = require("passport-local");
@@ -40,8 +42,20 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 // ---------------- ROUTES ----------------
-const sessionOptions={
-  secret : "mysecretcode",
+
+const store = MongoStore.create({
+  mongoUrl: process.env.MONGO_URI,
+  crypto: {
+    secret: "mysupersecretcode"
+  },
+  touchAfter: 24 * 3600
+});
+store.on("error", (err) => {
+  console.log("SESSION STORE ERROR", err);
+});
+
+const sessionOptions={store,
+  secret : "mysupersecretcode",
   resave : false,
   saveUninitialized :true,
   cookie :{
@@ -54,6 +68,9 @@ const sessionOptions={
 app.get("/", (req, res) => {
   res.redirect("/listings");
 });
+
+
+
 
 app.use(session(sessionOptions));
 app.use(flash())

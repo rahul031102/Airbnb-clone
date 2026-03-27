@@ -16,3 +16,20 @@
     }, false)
   })
 })()
+
+const taxSwitch = document.getElementById("taxSwitch");
+
+taxSwitch.addEventListener("change", () => {
+  const prices = document.querySelectorAll(".price");
+
+  prices.forEach((priceEl) => {
+    const basePrice = Number(priceEl.dataset.price);
+
+    if (taxSwitch.checked) {
+      const withTax = Math.round(basePrice * 1.18); // 18% GST
+      priceEl.innerText = `₹ ${withTax} / night (incl. tax)`;
+    } else {
+      priceEl.innerText = `₹ ${basePrice} / night`;
+    }
+  });
+});

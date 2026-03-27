@@ -1,47 +1,60 @@
 <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/"><i class="fa-brands fa-airbnb"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="container-fluid d-flex align-items-center">
+
+    <!-- LEFT -->
+    <a class="navbar-brand" href="/">
+      <i class="fa-brands fa-airbnb"></i>
+    </a>
+
+    <!-- TOGGLER -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+    <!-- CENTER + RIGHT INSIDE SAME COLLAPSE -->
+    <div class="collapse navbar-collapse align-items-center" id="navbarNavAltMarkup">
+
+      <!-- LEFT LINKS -->
       <div class="navbar-nav">
-        <a class="nav-link" aria-current="page" href="/listings">Home</a>
-        <a class="nav-link" href="/listings/create">create list</a>
+        <a class="nav-link" href="/listings">Explore</a>
         <a class="nav-link" href="#">Pricing</a>
       </div>
+
+      <!-- CENTER SEARCH -->
+      <div class="search-bar-container mx-auto">
+        <div class="search-bar">
+          <div class="search-item">Anywhere</div>
+          <div class="divider"></div>
+          <div class="search-item">Any week</div>
+          <div class="divider"></div>
+          <div class="search-item">Add guests</div>
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="d-flex align-items-center gap-3 ms-auto">
+
+        <a class="nav-link airbnb-home" href="/listings/create">
+          Airbnb your home
+        </a>
+
+        <!-- TAX SWITCH -->
+        <div >
+          <input class="form-check-input" type="checkbox">
+        </div>
+
+        <!-- DROPDOWN -->
+        <div class="dropdown">
+          <button class="btn btn-outline-dark" type="button" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+        </div>
+
+      </div>
+
     </div>
   </div>
-
-<div class="ms-auto dropdown">
-  <button class="btn btn-outline-dark" type="button" data-bs-toggle="dropdown">
-    <i class="fa-solid fa-ellipsis-vertical"></i>
-  </button>
-
-  <ul class="dropdown-menu dropdown-menu-end">
-
-    <% if (!currUser) { %>
-      <li>
-        <a class="dropdown-item" href="/signup">Signup</a>
-      </li>
-      <li>
-        <a class="dropdown-item" href="/login">Login</a>
-      </li>
-    <% } else { %>
-      <li>
-        <span class="dropdown-item-text">
-          Hello, <%= currUser.username %>
-        </span>
-      </li>
-      <li><hr class="dropdown-divider"></li>
-      <li>
-        <form action="/logout" method="POST">
-          <button class="dropdown-item">Logout</button>
-        </form>
-      </li>
-    <% } %>
-
-  </ul>
-</div>
-
 </nav>
