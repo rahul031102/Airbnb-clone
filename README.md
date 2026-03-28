@@ -36,15 +36,11 @@ A full-stack Airbnb-style web application where users can explore, create, and m
 
 ---
 
-## 📸 Screenshots
 
-(Add screenshots here — VERY IMPORTANT)
-
----
 
 ## 🌐 Live Demo
 
-👉 https://yourapp.onrender.com
+👉 https://airbnb-clone-gid6.onrender.com
 
 ---
 
